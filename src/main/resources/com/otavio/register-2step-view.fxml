@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="274.0" style="-fx-border-radius: 6;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.otavio.controllers.RegisterUsuarioController">
+   <children>
+      <Pane prefHeight="318.0" prefWidth="274.0" style="-fx-background-color: #2D3748; -fx-background-radius: 6;" styleClass="paneBorder" stylesheets="@login.css">
+         <children>
+             <AnchorPane layoutX="26.0" layoutY="6.0">
+                 <children>
+                     <Label text="Nome" textFill="WHITE">
+                         <font>
+                             <Font name="Roboto" size="14.0" />
+                         </font>
+                     </Label>
+                     <TextField fx:id="nome" layoutY="22.0" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #171923; -fx-text-fill: white;" />
+                 </children>
+             </AnchorPane>
+            <Label fx:id="test" layoutX="30.0" layoutY="100.0" style="-fx-border-radius: 6;" text="asdasdasdasdasd" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

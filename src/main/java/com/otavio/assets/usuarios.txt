@@ -1,0 +1,7 @@
+aluno#Otavio Augusto Teixeira#19719#12341#ciencia da computação#2
+aluno#Mateus Rosolem Baroni#20820#12342#ciencia da computação#2
+aluno#Leandro Aguiar Mota#58358#12343#ciencia da computação#2
+professor#Lucas Ribas#79579#22221#DCCE#Doutor
+professor#Wallace Ribeiro#89189#22222#DCCE#Doutor
+professor#Aleardo Silva#10910#22223#DCCE#PHD
+assessor#Caio Oliveira da Silva#47247#78781#Pós-Graduação

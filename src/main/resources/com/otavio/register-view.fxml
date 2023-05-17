@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.otavio.controllers.RegisterController">
+   <Pane prefHeight="400.0" prefWidth="609.0" style="-fx-background-color: #1A202C;">
+      <Separator layoutX="263.0" layoutY="58.0" orientation="VERTICAL" prefHeight="285.0" prefWidth="0.0" />
+      <Label layoutX="20.0" layoutY="71.0" prefHeight="25.0" prefWidth="230.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Bem vindo a biblioteca Unesp" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="112.0" prefHeight="188.0" prefWidth="217.0" text="Nossa biblioteca possui os melhores conteúdos para ajudar no seu crescimento intelectual, que vai desde livros, revistas a CDs com muita informação de qualidade" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font name="Roboto" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="180.0" layoutY="328.0" style="-fx-font-weight: bold;" text="Biblioteca" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="247.0" layoutY="302.0" prefHeight="47.0" prefWidth="6.0" text="." textFill="#6b46c1">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <BorderPane fx:id="pane" layoutX="300.0" layoutY="41.0" prefHeight="318.0" prefWidth="274.0" style="-fx-border-radius: 6;">
+         <center>
+            <Pane prefHeight="318.0" prefWidth="274.0" style="-fx-background-color: #2D3748; -fx-background-radius: 6;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="26.0" layoutY="6.0">
+                     <children>
+                        <Label text="Nome" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nome" layoutY="22.0" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #171923; -fx-text-fill: white;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="26.0" layoutY="69.0">
+                     <children>
+                        <Label text="Matricula" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="matricula" layoutY="22.0" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #171923; -fx-text-fill: white;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="25.0" layoutY="194.0">
+                     <children>
+                        <Label text="Função" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="funcao1" layoutY="22.0" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #171923; -fx-text-fill: white;" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="proximo" layoutX="26.0" layoutY="275.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="230.0" styleClass="button1" stylesheets="@login.css" text="Proximo passo">
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font>
+                  </Button>
+                  <PasswordField fx:id="password" layoutX="26.0" layoutY="151.0" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #171923; -fx-text-fill: white;" />
+                  <Label layoutX="26.0" layoutY="128.0" text="Senha" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorLabel" layoutX="25.0" layoutY="254.0" textFill="RED">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </Pane>
+</HBox>
