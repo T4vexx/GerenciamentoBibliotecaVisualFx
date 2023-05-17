@@ -81,5 +81,6 @@
             </Pane>
          </center>
       </BorderPane>
+      <Button fx:id="voltar" layoutX="393.0" layoutY="359.0" mnemonicParsing="false" styleClass="buttonOpcao2" stylesheets="@login.css" text="Voltar pro login" />
    </Pane>
 </HBox>

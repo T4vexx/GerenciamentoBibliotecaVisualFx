@@ -1,6 +1,8 @@
 package com.otavio.biblioteca;
 
 import com.otavio.HelloApplication;
+import com.otavio.controllers.RegisterAlunoController;
+import com.otavio.controllers.RegisterController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,12 +18,21 @@ public class DBUtils {
     public static DisplayBiblioteca getDisplayBiblioteca() {
         return getDisplayBiblioteca;
     }
-    public static void changeScene(ActionEvent event, String fxmlFile, String title) {
+    public static void changeScene(ActionEvent event, String fxmlFile, String title,String util) {
         Parent root = null;
 
         try {
-            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
-            root = loader.load();
+            if (util == "vazio") {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
+                root = loader.load();
+            } else {
+                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
+                RegisterController twoStepRegister = loader.getController();
+                twoStepRegister.setErrorLabel(util);
+                root = loader.load();
+
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

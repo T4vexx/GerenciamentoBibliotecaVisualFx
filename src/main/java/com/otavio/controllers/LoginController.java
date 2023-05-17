@@ -52,7 +52,7 @@ public class LoginController implements Initializable {
         trocarRegister.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DBUtils.changeScene(actionEvent,"register-view.fxml","Gerenciamento de biblioteca | Register page");
+                DBUtils.changeScene(actionEvent,"register-view.fxml","Gerenciamento de biblioteca | Register page","vazio");
             }
         });
     }

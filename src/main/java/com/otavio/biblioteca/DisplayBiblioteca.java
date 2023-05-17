@@ -31,7 +31,8 @@ public class DisplayBiblioteca {
             String linha;
             String[] campos;
 
-            bibliotecaFiles = new Scanner(new File("C:"+File.separator+"Users"+File.separator+"tavin"+File.separator+"OneDrive"+File.separator+"Desktop"+File.separator+"3semestre"+File.separator+"GerenciamentoParaBiblioteca"+File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"org"+File.separator+"tavex"+File.separator+"assets"+File.separator+"itens.txt"));
+            //bibliotecaFiles = new Scanner(new File("C:"+File.separator+"Users"+File.separator+"tavin"+File.separator+"OneDrive"+File.separator+"Desktop"+File.separator+"3semestre"+File.separator+"GerenciamentoParaBiblioteca"+File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"org"+File.separator+"tavex"+File.separator+"assets"+File.separator+"itens.txt"));
+            bibliotecaFiles = new Scanner(new File("C:\\Users\\tavexx\\Desktop\\BibliotecaVisual\\src\\main\\java\\com\\otavio\\assets\\itens.txt"));
 
             while(bibliotecaFiles.hasNextLine()) {
                 linha = bibliotecaFiles.nextLine();
@@ -55,30 +56,6 @@ public class DisplayBiblioteca {
         }
     }
 
-    public void telaDeLogin() {
-        Scanner in = new Scanner(System.in);
-        boolean flag=true;
-        int opt;
-
-        do {
-            System.out.println("********************************");
-            System.out.println("**** SISTEMA DA BIBLIOTECA *****");
-            System.out.println("********************************");
-            System.out.println("> 1         - Logar -           ");
-            System.out.println("> 2       - Registrar -         ");
-            opt = in.nextInt();
-
-        } while(opt != 1 && opt != 2);
-
-        if (opt == 1) {
-            logar();
-        } else {
-            registrar();
-        }
-
-        in.close();
-    }
-
     public boolean login(ActionEvent actE, String funcao, String matricula, String senha) {
         boolean isAccountLogged = false;
         Usuario myUser = null;
@@ -90,76 +67,19 @@ public class DisplayBiblioteca {
             return false;
         }
     }
-    private void logar() {
-        Scanner in = new Scanner(System.in);
-        String classificacao;
-        String matricula;
-        String senha;
-        Usuario myUser = null;
 
-        do {
-            System.out.println("********************************");
-            System.out.println("****         Logar          ****");
-            System.out.println("********************************");
-            System.out.println(">Digite seu cargo(aluno,professor,assessor)");
-            classificacao = in.nextLine();
-            System.out.println(">Digite seu número de matrícula");
-            matricula = in.nextLine();
-            System.out.println(">Digite seu senha");
-            senha = in.nextLine();
-            myUser = usuarios.login(classificacao,matricula,senha);
-            meuCliente = myUser;
-        } while(myUser == null);
-
-        telaDeUsuario();
-    }
-
-    private void registrar() {
-        boolean register = false;
-        Scanner in = new Scanner(System.in);
-        String nome;
-        String senha;
-        String matricula;
-        String funcao;
-        do {
-            System.out.println("********************************");
-            System.out.println("****        Registro        ****");
-            System.out.println("********************************");
-            System.out.println("> 1 - Nome");
-            nome = in.nextLine();
-            System.out.println("> 2 - Senha");
-            senha = in.nextLine();
-            System.out.println("> 3 - Matricula");
-            matricula = in.nextLine();
-            System.out.println("> 4 - Função");
-            funcao = in.nextLine();
-            if(funcao.equalsIgnoreCase("professor")) {
-                String departamento;
-                String titulacao;
-                System.out.println("> 5 - Departamento");
-                departamento = in.nextLine();
-                System.out.println("> 6 - Titulacao");
-                titulacao = in.nextLine();
-                Professor prof = new Professor(nome,senha,matricula,departamento,titulacao);
-                register = usuarios.addNewProfessor(prof,matricula);
-            } else if(funcao.equalsIgnoreCase("aluno")) {
-                String curso;
-                String periodo;
-                System.out.println("> 5 - Curso");
-                curso = in.nextLine();
-                System.out.println("> 6 - Periodo");
-                periodo = in.nextLine();
-                Alunos aluno = new Alunos(nome,senha,matricula,curso,periodo);
-                register = usuarios.addNewAlunos(aluno,matricula);
-            } else if(funcao.equalsIgnoreCase("assessor")) {
-                String secao;
-                System.out.println("> 5 - Seção de graduação");
-                secao = in.nextLine();
-                AssessorTecnico at = new AssessorTecnico(nome,senha,matricula,secao);
-                register = usuarios.addNewAssesorTecnico(at,matricula);
-            }
-        } while (!register);
-        logar();
+    public boolean register(ActionEvent actE, String nome, String senha, String matricula, String opcional1, String opcional2,String funcao) {
+        if(funcao.equalsIgnoreCase("aluno")) {
+            Alunos aluno = new Alunos(nome,senha,matricula,opcional1,opcional2);
+            return usuarios.addNewAlunos(aluno,matricula);
+        } else if(funcao.equalsIgnoreCase("professor")) {
+            Professor professor = new Professor(nome,senha,matricula,opcional1,opcional2);
+            return usuarios.addNewProfessor(professor,matricula);
+        } else if(funcao.equalsIgnoreCase("assessor")) {
+            AssessorTecnico assessor = new AssessorTecnico(nome,senha,matricula,opcional1);
+            return usuarios.addNewAssesorTecnico(assessor,matricula);
+        }
+        return false;
     }
 
     private void telaDeUsuario() {
@@ -215,7 +135,6 @@ public class DisplayBiblioteca {
                     }
                     break;
                 default:
-                    telaDeLogin();
                     meuCliente = null;
                     break;
             }
