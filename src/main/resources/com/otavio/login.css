@@ -3,6 +3,12 @@
     -fx-text-fill: rgb(255,255,255);
 }
 
+
+.button1:hover {
+    -fx-background-color: #805AD5;
+    -fx-text-fill: rgb(255,255,255);
+}
+
 .button2 {
     -fx-background-color: #1A202C;
     -fx-scale-x: 1;
@@ -17,8 +23,14 @@
     -fx-text-fill: #6b46c1;
 }
 
-.button1:hover {
-    -fx-background-color: #805AD5;
+.button3 {
+    -fx-background-color: #2C5282;
+    -fx-text-fill: rgb(255,255,255);
+}
+
+
+.button3:hover {
+    -fx-background-color: #2C5282;
     -fx-text-fill: rgb(255,255,255);
 }
 
@@ -49,15 +61,9 @@
 .buttonOpcao2:hover {
     -fx-background-color: transparent;
     -fx-cursor: pointer;
-    -fx-text-fill: #ECC94B;
+    -fx-text-fill: #805AD5;
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 }
 
-.paneBorder {
-    -fx-border-radius: 6px;
-}
 
-.paneBorder:hover {
-    -fx-border-radius: 6px;
-}

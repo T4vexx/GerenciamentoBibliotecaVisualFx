@@ -17,8 +17,8 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Gerenciamento de biblioteca | Log-In page");
         stage.setResizable(false);
-        //stage.getIcons().add(new Image("C:"+File.separator+"Users"+File.separator+"tavin"+File.separator+"OneDrive"+File.separator+"Desktop"+File.separator+"3semestre"+File.separator+"GerenciamentoDeBibliotecaGUI"+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"com"+File.separator+"otavio"+File.separator+"bibliotecaIcon.png"));
-        stage.getIcons().add(new Image("C:\\Users\\tavexx\\Desktop\\BibliotecaVisual\\src\\main\\resources\\com\\otavio\\bibliotecaIcon.png"));
+        stage.getIcons().add(new Image("C:"+File.separator+"Users"+File.separator+"tavin"+File.separator+"OneDrive"+File.separator+"Desktop"+File.separator+"3semestre"+File.separator+"GerenciamentoDeBibliotecaGUI"+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"com"+File.separator+"otavio"+File.separator+"bibliotecaIcon.png"));
+        //stage.getIcons().add(new Image("C:\\Users\\tavexx\\Desktop\\BibliotecaVisual\\src\\main\\resources\\com\\otavio\\bibliotecaIcon.png"));
         stage.setScene(scene);
         stage.show();
     }

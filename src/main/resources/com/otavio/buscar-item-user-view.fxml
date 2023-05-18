@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="275.0" prefWidth="443.0" style="-fx-background-color: #1A202C;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.otavio.controllers.BuscarItemController">
+    <children>
+        <TextField fx:id="titulo" layoutX="14.0" layoutY="45.0" promptText="Blue social standard" style="-fx-background-color: #171923; -fx-text-fill: white;">
+            <font>
+                <Font name="Roboto" size="14.0" />
+            </font>
+        </TextField>
+      <Label fx:id="consulta_saldo1" layoutX="14.0" layoutY="13.0" text="Titulo do item" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </Label>
+        <Button fx:id="buscar" layoutX="14.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" styleClass="button1" stylesheets="@login.css" text="Buscar" textFill="WHITE" />
+        <Label fx:id="setarSaque" layoutX="4.0" layoutY="147.0" textFill="WHITE">
+            <font>
+                <Font name="Roboto" size="18.0" />
+            </font>
+        </Label>
+      <Label fx:id="setarErroSaque" layoutX="4.0" layoutY="187.0" textFill="RED">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </Label>
+        <Label fx:id="consulta_saldo" layoutX="214.0" layoutY="42.0" style="-fx-font-weight: bold;" text="Autor" textFill="WHITE">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Label>
+      <Label fx:id="title" layoutX="214.0" layoutY="1.0" prefHeight="41.0" prefWidth="224.0" style="-fx-opacity: 0.1;" text="Can majority speak officer yard fast charge threat." textFill="WHITE" textOverrun="CLIP" wrapText="true" />
+      <Label fx:id="autor" layoutX="214.0" layoutY="59.0" prefHeight="30.0" prefWidth="224.0" style="-fx-opacity: 0.1;" text="Jonathan Johnson" textFill="WHITE" textOverrun="CLIP" wrapText="true" />
+      <Label fx:id="consulta_saldo3" layoutX="214.0" layoutY="90.0" style="-fx-font-weight: bold;" text="Ano de Publicação" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="anoPublicacao" layoutX="214.0" layoutY="107.0" prefHeight="30.0" prefWidth="113.0" style="-fx-opacity: 0.1;" text="1963" textFill="WHITE" textOverrun="CLIP" wrapText="true" />
+      <Label fx:id="consulta_saldo4" layoutX="214.0" layoutY="137.0" prefHeight="19.0" prefWidth="146.0" style="-fx-font-weight: bold;" text="Quantidade disponível" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantDisp" layoutX="214.0" layoutY="154.0" prefHeight="30.0" prefWidth="113.0" style="-fx-opacity: 0.1;" text="34" textFill="WHITE" textOverrun="CLIP" wrapText="true" />
+      <Label fx:id="titleOpc1" layoutX="214.0" layoutY="184.0" style="-fx-font-weight: bold;" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="opc1" layoutX="214.0" layoutY="201.0" prefHeight="30.0" prefWidth="224.0" textFill="WHITE" textOverrun="CLIP" wrapText="true" />
+      <Label fx:id="titleOpc2" layoutX="215.0" layoutY="231.0" style="-fx-font-weight: bold;" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="opc2" layoutX="215.0" layoutY="248.0" prefHeight="30.0" prefWidth="224.0" textFill="WHITE" textOverrun="CLIP" wrapText="true" />
+    </children>
+</AnchorPane>

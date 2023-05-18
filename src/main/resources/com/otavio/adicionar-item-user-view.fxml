@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="275.0" prefWidth="443.0" style="-fx-background-color: #1A202C;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.otavio.controllers.AdicionarItemController">
+   <children>
+      <Label fx:id="consulta_saldo1" layoutX="14.0" layoutY="13.0" text="Titulo do item" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titulo" layoutX="14.0" layoutY="38.0" promptText="Blue social standard" style="-fx-background-color: #171923; -fx-text-fill: white;">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="info" layoutX="14.0" layoutY="256.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="consulta_saldo11" layoutX="253.0" layoutY="7.0" text="Autor" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="autor" layoutX="253.0" layoutY="32.0" promptText="Kenneth Taylor" style="-fx-background-color: #171923; -fx-text-fill: white;">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="consulta_saldo12" layoutX="16.0" layoutY="83.0" text="Ano de publicação" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="anoPublicacao" layoutX="16.0" layoutY="108.0" promptText="1976" style="-fx-background-color: #171923; -fx-text-fill: white;">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="consulta_saldo111" layoutX="256.0" layoutY="77.0" text="Quantidade disponível" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quantidaDisponivel" layoutX="256.0" layoutY="102.0" promptText="29" style="-fx-background-color: #171923; -fx-text-fill: white;">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="consulta_saldo121" layoutX="16.0" layoutY="153.0" text="Volume/Editora" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="opc1" layoutX="16.0" layoutY="178.0" promptText="2" style="-fx-background-color: #171923; -fx-text-fill: white;">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="consulta_saldo1111" layoutX="256.0" layoutY="147.0" text="Gravadora/ISBN/Número" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="opc2" layoutX="256.0" layoutY="172.0" promptText="Pittman and Sons" style="-fx-background-color: #171923; -fx-text-fill: white;">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="consulta_saldo11111" layoutX="256.0" layoutY="208.0" text="Tipo" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tipo" layoutX="256.0" layoutY="233.0" promptText="CD/Livro/Revista" style="-fx-background-color: #171923; -fx-text-fill: white;">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="adicionar" layoutX="16.0" layoutY="221.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="173.0" styleClass="button1" stylesheets="@login.css" text="Adicionar" textFill="WHITE" />
+   </children>
+</AnchorPane>

@@ -56,8 +56,8 @@
                </font>
             </Button>
             <Label fx:id="erroNoFomulario" layoutX="26.0" layoutY="195.0" textFill="RED" />
-            <PasswordField fx:id="password" layoutX="26.0" layoutY="170.0" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #171923; -fx-text-fill: white;" />
-            <Label layoutX="26.0" layoutY="142.0" text="Senha" textFill="WHITE">
+            <PasswordField fx:id="password" layoutX="26.0" layoutY="162.0" prefHeight="34.0" prefWidth="223.0" style="-fx-background-color: #171923; -fx-text-fill: white;" />
+            <Label layoutX="26.0" layoutY="140.0" text="Senha" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="14.0" />
                </font>

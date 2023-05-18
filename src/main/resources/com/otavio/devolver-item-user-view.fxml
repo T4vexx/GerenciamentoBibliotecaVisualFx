@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="275.0" prefWidth="443.0" style="-fx-background-color: #1A202C;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.otavio.controllers.DevolverItemController">
+    <children>
+        <TextField fx:id="nomeDoItem" layoutX="14.0" layoutY="45.0" promptText="Book sense both author." style="-fx-background-color: #171923; -fx-text-fill: white;">
+            <font>
+                <Font name="Roboto" size="14.0" />
+            </font>
+        </TextField>
+      <Label fx:id="consulta_saldo1" layoutX="14.0" layoutY="13.0" text="Nome do item" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </Label>
+        <Button fx:id="devolver" layoutX="14.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" styleClass="button1" stylesheets="@login.css" text="Devolver" textFill="WHITE" />
+      <BorderPane fx:id="listar" layoutX="205.0" layoutY="19.0" prefHeight="223.0" prefWidth="226.0" />
+      <Label fx:id="messageLabel" layoutX="18.0" layoutY="253.0" textFill="RED" />
+    </children>
+</AnchorPane>

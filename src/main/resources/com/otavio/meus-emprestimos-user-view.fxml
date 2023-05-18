@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="275.0" prefWidth="443.0" style="-fx-background-color: #1A202C;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.otavio.controllers.MeusEmprestimosController">
+    <children>
+      <BorderPane fx:id="list" prefHeight="275.0" prefWidth="443.0">
+         <center>
+            <Label fx:id="aviso" text="trasdcasdasdasd" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+         </center></BorderPane>
+    </children>
+</AnchorPane>

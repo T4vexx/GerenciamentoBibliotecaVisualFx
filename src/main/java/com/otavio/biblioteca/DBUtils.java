@@ -3,6 +3,7 @@ package com.otavio.biblioteca;
 import com.otavio.HelloApplication;
 import com.otavio.controllers.RegisterAlunoController;
 import com.otavio.controllers.RegisterController;
+import com.otavio.controllers.UserController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,24 +23,45 @@ public class DBUtils {
         Parent root = null;
 
         try {
-            if (util == "vazio") {
-                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
+            if (util.equals("vazio")) {
                 root = loader.load();
+                Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                stage.setTitle(title);
+                stage.setScene(new Scene(root, 600,400));
+                stage.show();
             } else {
-                FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
-                RegisterController twoStepRegister = loader.getController();
-                twoStepRegister.setErrorLabel(util);
                 root = loader.load();
+                Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+                stage.setTitle(title);
+                stage.setScene(new Scene(root, 600,400));
+                stage.show();
+                RegisterController registerController = loader.getController();
+                registerController.setErrorLabel(util);
 
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root, 600,400));
-        stage.show();
+    public static void changeScene2(ActionEvent event, String fxmlFile, String title,String nome, String matricula, String funcao) {
+        Parent root = null;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
+            root = loader.load();
+            Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root, 600,400));
+            stage.show();
+            UserController userController = loader.getController();
+            userController.setContaInfos(nome,matricula,funcao);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

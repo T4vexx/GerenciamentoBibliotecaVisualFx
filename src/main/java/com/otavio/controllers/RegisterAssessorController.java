@@ -14,13 +14,11 @@ import javafx.scene.paint.Paint;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegisterAlunoController implements Initializable {
+public class RegisterAssessorController implements Initializable {
 
 
     @FXML
-    private TextField curso;
-    @FXML
-    private TextField periodo;
+    private TextField secao;
     @FXML
     private Button registrar;
     @FXML
@@ -39,8 +37,8 @@ public class RegisterAlunoController implements Initializable {
                 DisplayBiblioteca displayBiblioteca;
                 displayBiblioteca = DBUtils.getDisplayBiblioteca();
 
-                if(!curso.getText().equals("") && !periodo.getText().equals("")) {
-                    isCredentialsCorrect = displayBiblioteca.register(event,nome,senha,matricula,curso.getText(),periodo.getText(),"aluno");
+                if(!secao.getText().equals("")) {
+                    isCredentialsCorrect = displayBiblioteca.register(event,nome,senha,matricula,secao.getText(),"","assessor");
                     if(!isCredentialsCorrect) {
                         DBUtils.changeScene(event,"register-view.fxml","Gerenciamento de biblioteca | Register page","Matrícula já existente | Tente novamente");
                     } else {

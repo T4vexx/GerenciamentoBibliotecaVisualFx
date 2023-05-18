@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
                 boolean isCredentialsCorrect;
                 DisplayBiblioteca displayBiblioteca;
                 displayBiblioteca = DBUtils.getDisplayBiblioteca();
-                if(funcao.getText() != "" && matricula.getText() != "" && password.getText() != "") {
+                if(!funcao.getText().equals("") && !matricula.getText().equals("") && !password.getText().equals("")) {
                     isCredentialsCorrect = displayBiblioteca.login(actionEvent,funcao.getText(),matricula.getText(),password.getText());
                     if(!isCredentialsCorrect) {
                         erroNoFomulario.setText("Credencias não coincidentes");

@@ -50,15 +50,19 @@ public class RegisterController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 FXMLLoader root;
                 try {
-                    if(nome.getText() != "" && matricula.getText() != "" && password.getText() != "" && funcao1.getText() != "") {
+                    if(!nome.getText().equals("") && !matricula.getText().equals("") && !password.getText().equals("") && !funcao1.getText().equals("")) {
                         if(funcao1.getText().equalsIgnoreCase("aluno")) {
                             root = loadPage("register-aluno");
                             RegisterAlunoController twoStepRegister = root.getController();
                             twoStepRegister.setFirstStepRegisterInfos(nome.getText(),matricula.getText(),password.getText());
                         } else if(funcao1.getText().equalsIgnoreCase("professor")) {
-
+                            root = loadPage("register-professor");
+                            RegisterProfessorController twoStepRegister = root.getController();
+                            twoStepRegister.setFirstStepRegisterInfos(nome.getText(),matricula.getText(),password.getText());
                         } else if(funcao1.getText().equalsIgnoreCase("assessor")) {
-
+                            root = loadPage("register-assessor");
+                            RegisterAssessorController twoStepRegister = root.getController();
+                            twoStepRegister.setFirstStepRegisterInfos(nome.getText(),matricula.getText(),password.getText());
                         }
                     } else {
                         errorLabel.setText("Todas as informações devem ser prenchidas");
@@ -78,7 +82,7 @@ public class RegisterController implements Initializable {
     }
 
     public void setErrorLabel(String error) {
-        this.error = error;
+        errorLabel.setText(error);
     }
 
     private FXMLLoader loadPage(String page) {
