@@ -30,8 +30,8 @@ public class DisplayBiblioteca {
             String linha;
             String[] campos;
 
-            bibliotecaFiles = new Scanner(new File("C:"+File.separator+"Users"+File.separator+"tavin"+File.separator+"OneDrive"+File.separator+"Desktop"+File.separator+"3semestre"+File.separator+"GerenciamentoParaBiblioteca"+File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"org"+File.separator+"tavex"+File.separator+"assets"+File.separator+"itens.txt"));
-            //bibliotecaFiles = new Scanner(new File("C:\\Users\\tavexx\\Desktop\\BibliotecaVisual\\src\\main\\java\\com\\otavio\\assets\\itens.txt"));
+            //bibliotecaFiles = new Scanner(new File("C:"+File.separator+"Users"+File.separator+"tavin"+File.separator+"OneDrive"+File.separator+"Desktop"+File.separator+"3semestre"+File.separator+"GerenciamentoParaBiblioteca"+File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"org"+File.separator+"tavex"+File.separator+"assets"+File.separator+"itens.txt"));
+            bibliotecaFiles = new Scanner(new File("C:\\Users\\tavexx\\Desktop\\BibliotecaVisual\\src\\main\\java\\com\\otavio\\assets\\itens.txt"));
 
             while(bibliotecaFiles.hasNextLine()) {
                 linha = bibliotecaFiles.nextLine();
@@ -117,6 +117,7 @@ public class DisplayBiblioteca {
                 return 0.0;
             }
         }
+        System.out.println("Error voce nao tem esse item");
         return 0.0;
     }
 

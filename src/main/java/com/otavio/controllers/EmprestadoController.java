@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Paint;
 
@@ -63,6 +64,16 @@ public class EmprestadoController implements Initializable {
                 list.setPrefHeight(237);
                 bp.setCenter(list);
                 estado = 1;
+
+                list.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if(list.getSelectionModel().getSelectedItem() != null) {
+                            String[] campos = list.getSelectionModel().getSelectedItem().split(" ");
+                            index.setText(campos[0]);
+                        }
+                    }
+                });
             }
         });
         listarRevista.setOnAction(new EventHandler<ActionEvent>() {
@@ -82,6 +93,16 @@ public class EmprestadoController implements Initializable {
                 list.setPrefHeight(237);
                 bp.setCenter(list);
                 estado = 2;
+
+                list.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if(list.getSelectionModel().getSelectedItem() != null) {
+                            String[] campos = list.getSelectionModel().getSelectedItem().split(" ");
+                            index.setText(campos[0]);
+                        }
+                    }
+                });
             }
         });
         ListarCDs.setOnAction(new EventHandler<ActionEvent>() {
@@ -101,6 +122,16 @@ public class EmprestadoController implements Initializable {
                 list.setPrefHeight(237);
                 bp.setCenter(list);
                 estado = 3;
+
+                list.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if(list.getSelectionModel().getSelectedItem() != null) {
+                            String[] campos = list.getSelectionModel().getSelectedItem().split(" ");
+                            index.setText(campos[0]);
+                        }
+                    }
+                });
             }
         });
 
@@ -117,7 +148,7 @@ public class EmprestadoController implements Initializable {
                             if (livro != null) {
                                 if (displayBiblioteca.fazerEmprestimo(livro)) {
                                     messageLabel.setTextFill(Paint.valueOf("#38A169"));
-                                    messageLabel.setText("Item emprestado com sucesso");
+                                    messageLabel.setText("Item emprestado com sucesso | "+livro.getTitulo());
                                 } else {
                                     messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
                                     messageLabel.setText("Voce ja possui esse titulo / quantidade indisponivel");
@@ -132,7 +163,7 @@ public class EmprestadoController implements Initializable {
                             if (revista != null) {
                                 if (displayBiblioteca.fazerEmprestimo(revista)) {
                                     messageLabel.setTextFill(Paint.valueOf("#38A169"));
-                                    messageLabel.setText("Item emprestado com sucesso");
+                                    messageLabel.setText("Item emprestado com sucesso | "+revista.getTitulo());
                                 } else {
                                     messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
                                     messageLabel.setText("Voce ja possui esse titulo / quantidade indisponivel");
@@ -147,7 +178,7 @@ public class EmprestadoController implements Initializable {
                             if (cds != null) {
                                 if (displayBiblioteca.fazerEmprestimo(cds)) {
                                     messageLabel.setTextFill(Paint.valueOf("#38A169"));
-                                    messageLabel.setText("Item emprestado com sucesso");
+                                    messageLabel.setText("Item emprestado com sucesso | "+cds.getTitulo());
                                 } else {
                                     messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
                                     messageLabel.setText("Voce ja possui esse titulo / quantidade indisponivel");
