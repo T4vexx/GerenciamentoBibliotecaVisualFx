@@ -34,7 +34,7 @@ public class MeusEmprestimosController implements Initializable {
         ObservableList<String> items = FXCollections.observableArrayList();
         if(emps.size() > 0) {
             for(Emprestimo e: emps) {
-                items.add("> "+count+" -> "+ (e.getDataDeDevolucaoReal() != null ? "Devolvido" : "Não Devolvido" )+" -> Item: "+e.getItem().getTitulo()+" | Data de emprestimo: "+e.getDataDeEmprestimo().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"))+" | Data prevista de devolução: "+e.getDataDeDevolucaoPrevista().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+                items.add("> "+count+" -> "+ (e.getDataDeDevolucaoReal() != null ? "Devolvido" : "Não Devolvido" )+" -> Item: "+e.getItem().getTitulo()+" | Data de emprestimo: "+e.getDataDeEmprestimo().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"))+" | Data prevista de devolução: "+e.getDataDeDevolucaoPrevista().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"))+(e.getDataDeDevolucaoReal() != null ? " | Data de devolução real: "+e.getDataDeDevolucaoReal().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")) : ""));
                 count++;
             }
             listaEmprestimos.setItems(items);

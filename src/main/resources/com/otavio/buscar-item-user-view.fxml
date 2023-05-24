@@ -58,5 +58,6 @@
          </font>
       </Label>
       <Label fx:id="opc2" layoutX="215.0" layoutY="248.0" prefHeight="30.0" prefWidth="224.0" textFill="WHITE" textOverrun="CLIP" wrapText="true" />
+      <Label fx:id="messageLabel" layoutX="14.0" layoutY="255.0" textFill="RED" />
     </children>
 </AnchorPane>

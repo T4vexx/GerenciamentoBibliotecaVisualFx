@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/tavin/OneDrive/Desktop/3semestre/GerenciamentoDeBibliotecaGUI/src/main/java/com/otavio</OriginalElement>
+  <nodes>
+    <node x="387.9333333333334" y="484.0">com.otavio.biblioteca.itens.Emprestimo</node>
+    <node x="-108.5" y="1179.5">com.otavio.biblioteca.individuos.AssessorTecnico</node>
+    <node x="1349.571875" y="1504.5">com.otavio.exceptions.AttempLibraryError</node>
+    <node x="1727.75" y="1146.0">com.otavio.biblioteca.itens.Livro</node>
+    <node x="727.1833333333334" y="-15.0">com.otavio.dtos.Emprestavel</node>
+    <node x="31.986458333333303" y="1460.0">com.otavio.biblioteca.individuos.UsuariosDB</node>
+    <node x="381.125" y="2081.5">com.otavio.controllers.DevolverItemController</node>
+    <node x="690.6833333333334" y="111.0">com.otavio.biblioteca.itens.Item</node>
+    <node x="830.75" y="1191.0">com.otavio.exceptions.InvalidInformationsError</node>
+    <node x="1885.75" y="1504.5">com.otavio.exceptions.UnavailableItemError</node>
+    <node x="2155.0" y="2237.0">com.otavio.controllers.AdicionarItemController</node>
+    <node x="-119.0" y="2403.0">com.otavio.controllers.EmprestadoController</node>
+    <node x="578.0" y="2237.0">com.otavio.controllers.RegisterAlunoController</node>
+    <node x="534.75" y="1179.5">com.otavio.biblioteca.individuos.Alunos</node>
+    <node x="2438.0" y="2237.0">com.otavio.controllers.RegisterController</node>
+    <node x="939.0" y="2237.0">com.otavio.controllers.RegisterProfessorController</node>
+    <node x="-35.566666666666606" y="793.0">com.otavio.biblioteca.individuos.Usuario</node>
+    <node x="1661.0" y="2237.0">com.otavio.HelloApplication</node>
+    <node x="187.0" y="2237.0">com.otavio.controllers.BuscarItemController</node>
+    <node x="533.5" y="1721.0">com.otavio.biblioteca.DisplayBiblioteca</node>
+    <node x="639.125" y="2070.0">com.otavio.biblioteca.DBUtils</node>
+    <node x="1167.75" y="1146.0">com.otavio.biblioteca.itens.CD</node>
+    <node x="1561.571875" y="1504.5">com.otavio.exceptions.NotBorrowedItemError</node>
+    <node x="916.75" y="1404.0">com.otavio.biblioteca.Vitrine</node>
+    <node x="226.75" y="1179.5">com.otavio.biblioteca.individuos.Professor</node>
+    <node x="1300.0" y="2237.0">com.otavio.controllers.RegisterAssessorController</node>
+    <node x="1871.0" y="2237.0">com.otavio.controllers.MeusEmprestimosController</node>
+    <node x="1445.75" y="1146.0">com.otavio.biblioteca.itens.Revista</node>
+    <node x="-119.0" y="2237.0">com.otavio.controllers.UserController</node>
+    <node x="164.0" y="2403.0">com.otavio.controllers.LoginController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.itens.Emprestimo" relationship="CREATE">
+      <point x="-177.5" y="105.0" />
+      <point x="-166.5" y="1975.5" />
+      <point x="-166.5" y="596.5" />
+      <point x="-158.0" y="-15.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.Vitrine" target="com.otavio.biblioteca.itens.Revista" relationship="TO_MANY">
+      <point x="115.0" y="-59.5" />
+      <point x="1591.75" y="1472.0" />
+      <point x="15.0" y="72.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.individuos.Usuario" relationship="TO_ONE">
+      <point x="-177.5" y="90.0" />
+      <point x="-151.5" y="1960.5" />
+      <point x="-151.5" y="942.5" />
+      <point x="-137.0" y="-0.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.Vitrine" relationship="CREATE">
+      <point x="177.5" y="-60.0" />
+      <point x="1008.625" y="1810.5" />
+      <point x="-23.125" y="127.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.itens.Item" target="com.otavio.dtos.Emprestavel" relationship="REALIZATION">
+      <point x="0.0" y="-160.5" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.Professor" target="com.otavio.biblioteca.individuos.Usuario" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="370.75" y="1124.0" />
+      <point x="343.5583333333334" y="1124.0" />
+      <point x="343.5583333333334" y="1114.0" />
+      <point x="169.9333333333334" y="1114.0" />
+      <point x="68.5" y="149.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.UsuariosDB" target="com.otavio.biblioteca.individuos.Professor" relationship="TO_MANY">
+      <point x="158.0" y="-71.5" />
+      <point x="-15.263541666666697" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DBUtils" target="com.otavio.biblioteca.DisplayBiblioteca" relationship="TO_ONE">
+      <point x="-0.0" y="-61.0" />
+      <point x="827.625" y="2045.0" />
+      <point x="711.0" y="2045.0" />
+      <point x="-0.0" y="149.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.individuos.UsuariosDB" relationship="CREATE">
+      <point x="-177.5" y="60.0" />
+      <point x="134.5" y="1930.5" />
+      <point x="-62.9864583333333" y="71.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.UsuariosDB" target="com.otavio.biblioteca.individuos.AssessorTecnico" relationship="CREATE">
+      <point x="165.4995416666667" y="-15.0" />
+      <point x="379.0" y="1516.5" />
+      <point x="379.0" y="1442.5" />
+      <point x="39.486" y="1442.5" />
+      <point x="3.985999999999997" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.UsuariosDB" target="com.otavio.exceptions.InvalidInformationsError" relationship="CREATE">
+      <point x="-4.583333333130213E-4" y="71.5" />
+      <point x="197.486" y="1646.0" />
+      <point x="893.5" y="1646.0" />
+      <point x="-46.75" y="27.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.itens.Revista" target="com.otavio.biblioteca.itens.Item" relationship="GENERALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="1576.75" y="463.0" />
+      <point x="1583.5583333333334" y="463.0" />
+      <point x="1583.5583333333334" y="453.0" />
+      <point x="847.4333333333334" y="453.0" />
+      <point x="52.25" y="160.5" />
+    </edge>
+    <edge source="com.otavio.controllers.DevolverItemController" target="com.otavio.biblioteca.DisplayBiblioteca" relationship="TO_ONE">
+      <point x="-0.0" y="-49.5" />
+      <point x="500.125" y="2045.0" />
+      <point x="711.0" y="2045.0" />
+      <point x="-0.0" y="149.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.UsuariosDB" target="com.otavio.biblioteca.individuos.Alunos" relationship="CREATE">
+      <point x="165.4995416666667" y="-0.0" />
+      <point x="431.0" y="1531.5" />
+      <point x="431.0" y="1282.5" />
+      <point x="672.75" y="1282.5" />
+      <point x="-0.0" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.AssessorTecnico" target="com.otavio.biblioteca.individuos.Usuario" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="35.5" y="1124.0" />
+      <point x="343.5583333333334" y="1124.0" />
+      <point x="343.5583333333334" y="1114.0" />
+      <point x="169.9333333333334" y="1114.0" />
+      <point x="68.5" y="149.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.itens.Emprestimo" target="com.otavio.biblioteca.itens.Item" relationship="TO_ONE">
+      <point x="150.5" y="-127.5" />
+      <point x="-98.75" y="160.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.Alunos" target="com.otavio.biblioteca.individuos.Usuario" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="672.75" y="1124.0" />
+      <point x="343.5583333333334" y="1124.0" />
+      <point x="343.5583333333334" y="1114.0" />
+      <point x="169.9333333333334" y="1114.0" />
+      <point x="68.5" y="149.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.Vitrine" relationship="TO_ONE">
+      <point x="177.5" y="-45.0" />
+      <point x="1033.625" y="1825.5" />
+      <point x="1.875" y="127.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.individuos.Alunos" relationship="CREATE">
+      <point x="-177.5" y="-0.0" />
+      <point x="431.0" y="1870.5" />
+      <point x="431.0" y="1282.5" />
+      <point x="672.75" y="1282.5" />
+      <point x="-0.0" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.itens.Revista" relationship="CREATE">
+      <point x="177.5" y="30.0" />
+      <point x="2177.5" y="1900.5" />
+      <point x="2177.5" y="424.5" />
+      <point x="1561.75" y="424.5" />
+      <point x="-15.0" y="-72.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.Vitrine" target="com.otavio.exceptions.InvalidInformationsError" relationship="CREATE">
+      <point x="-115.0" y="-0.0" />
+      <point x="893.5" y="1531.5" />
+      <point x="-46.75" y="27.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.Vitrine" target="com.otavio.biblioteca.itens.CD" relationship="TO_MANY">
+      <point x="115.0" y="-74.5" />
+      <point x="1357.071875" y="1457.0" />
+      <point x="60.32187500000009" y="72.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.Vitrine" target="com.otavio.biblioteca.itens.Livro" relationship="TO_MANY">
+      <point x="115.0" y="-44.5" />
+      <point x="1765.071875" y="1487.0" />
+      <point x="-105.17812499999991" y="72.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.exceptions.UnavailableItemError" relationship="CREATE">
+      <point x="177.5" y="-0.0" />
+      <point x="1986.25" y="1870.5" />
+      <point x="-0.0" y="27.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.Usuario" target="com.otavio.biblioteca.itens.Emprestimo" relationship="TO_MANY">
+      <point x="-0.0" y="-149.5" />
+      <point x="101.4333333333334" y="611.5" />
+      <point x="-158.0" y="-0.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.exceptions.InvalidInformationsError" relationship="CREATE">
+      <point x="-0.0" y="-149.5" />
+      <point x="711.0" y="1646.0" />
+      <point x="893.5" y="1646.0" />
+      <point x="-46.75" y="27.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.individuos.Professor" relationship="CREATE">
+      <point x="-177.5" y="15.0" />
+      <point x="396.0" y="1885.5" />
+      <point x="396.0" y="1282.5" />
+      <point x="415.5" y="1282.5" />
+      <point x="44.75" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DBUtils" target="com.otavio.biblioteca.DisplayBiblioteca" relationship="CREATE">
+      <point x="15.0" y="-61.0" />
+      <point x="131.625" y="149.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.UsuariosDB" target="com.otavio.biblioteca.individuos.Professor" relationship="CREATE">
+      <point x="165.4995416666667" y="15.0" />
+      <point x="396.0" y="1546.5" />
+      <point x="396.0" y="1282.5" />
+      <point x="415.5" y="1282.5" />
+      <point x="44.75" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.individuos.AssessorTecnico" relationship="CREATE">
+      <point x="-177.5" y="30.0" />
+      <point x="379.0" y="1900.5" />
+      <point x="379.0" y="1442.5" />
+      <point x="39.486" y="1442.5" />
+      <point x="3.985999999999997" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.itens.Livro" target="com.otavio.biblioteca.itens.Item" relationship="GENERALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="1870.25" y="463.0" />
+      <point x="1583.5583333333334" y="463.0" />
+      <point x="1583.5583333333334" y="453.0" />
+      <point x="847.4333333333334" y="453.0" />
+      <point x="52.25" y="160.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.exceptions.NotBorrowedItemError" relationship="CREATE">
+      <point x="177.5" y="-15.0" />
+      <point x="1668.5" y="1855.5" />
+      <point x="1.428124999999909" y="27.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.exceptions.AttempLibraryError" relationship="CREATE">
+      <point x="177.5" y="-30.0" />
+      <point x="1445.571875" y="1840.5" />
+      <point x="-0.0" y="27.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.itens.Livro" relationship="CREATE">
+      <point x="177.5" y="15.0" />
+      <point x="2162.5" y="1885.5" />
+      <point x="2162.5" y="1218.0" />
+      <point x="142.5" y="-0.0" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.UsuariosDB" target="com.otavio.biblioteca.individuos.AssessorTecnico" relationship="TO_MANY">
+      <point x="-143.0004583333333" y="-71.5" />
+      <point x="18.98599999999999" y="38.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.itens.CD" target="com.otavio.biblioteca.itens.Item" relationship="GENERALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="1296.75" y="463.0" />
+      <point x="1583.5583333333334" y="463.0" />
+      <point x="1583.5583333333334" y="453.0" />
+      <point x="847.4333333333334" y="453.0" />
+      <point x="52.25" y="160.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.individuos.UsuariosDB" relationship="TO_ONE">
+      <point x="-177.5" y="45.0" />
+      <point x="169.5" y="1915.5" />
+      <point x="-27.986458333333303" y="71.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.DisplayBiblioteca" target="com.otavio.biblioteca.itens.CD" relationship="CREATE">
+      <point x="-15.0" y="-149.5" />
+      <point x="696.0" y="1282.5" />
+      <point x="-129.0" y="64.5" />
+    </edge>
+    <edge source="com.otavio.biblioteca.individuos.UsuariosDB" target="com.otavio.biblioteca.individuos.Alunos" relationship="TO_MANY">
+      <point x="-0.0" y="-71.5" />
+      <point x="197.4864583333333" y="1162.0" />
+      <point x="657.75" y="1162.0" />
+      <point x="-15.0" y="-38.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.3518886679920477" showDependencies="true" x="1147.0" y="1242.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

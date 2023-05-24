@@ -43,6 +43,7 @@ public class RegisterController implements Initializable {
 
         if(!error.equalsIgnoreCase("")) {
             errorLabel.setText(error);
+            errorLabel.setTextFill(Paint.valueOf("#E53E3E"));
         }
 
         proximo.setOnAction(new EventHandler<ActionEvent>() {
@@ -66,6 +67,7 @@ public class RegisterController implements Initializable {
                         }
                     } else {
                         errorLabel.setText("Todas as informações devem ser prenchidas");
+                        errorLabel.setTextFill(Paint.valueOf("#E53E3E"));
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

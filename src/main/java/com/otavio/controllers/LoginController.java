@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Paint;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,12 +40,19 @@ public class LoginController implements Initializable {
                 DisplayBiblioteca displayBiblioteca;
                 displayBiblioteca = DBUtils.getDisplayBiblioteca();
                 if(!funcao.getText().equals("") && !matricula.getText().equals("") && !password.getText().equals("")) {
-                    isCredentialsCorrect = displayBiblioteca.login(actionEvent,funcao.getText(),matricula.getText(),password.getText());
-                    if(!isCredentialsCorrect) {
-                        erroNoFomulario.setText("Credencias não coincidentes");
+                    if(funcao.getText().equals("aluno") || funcao.getText().equals("professor") || funcao.getText().equals("assessor")) {
+                        isCredentialsCorrect = displayBiblioteca.login(actionEvent,funcao.getText(),matricula.getText(),password.getText());
+                        if(!isCredentialsCorrect) {
+                            erroNoFomulario.setText("Credencias não coincidentes");
+                            erroNoFomulario.setTextFill(Paint.valueOf("#E53E3E"));
+                        }
+                    } else {
+                        erroNoFomulario.setText("Digite um função valida | aluno/professor/cd");
+                        erroNoFomulario.setTextFill(Paint.valueOf("#E53E3E"));
                     }
                 } else {
                     erroNoFomulario.setText("Credenciais não podem ser vazias");
+                    erroNoFomulario.setTextFill(Paint.valueOf("#E53E3E"));
                 }
             }
         });

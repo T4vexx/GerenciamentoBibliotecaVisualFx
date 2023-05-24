@@ -6,6 +6,7 @@ import com.otavio.biblioteca.itens.CD;
 import com.otavio.biblioteca.itens.Item;
 import com.otavio.biblioteca.itens.Livro;
 import com.otavio.biblioteca.itens.Revista;
+import com.otavio.exceptions.UnavailableItemError;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Paint;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,10 +34,11 @@ public class BuscarItemController implements Initializable {
     @FXML
     private Label titleOpc2;
     @FXML
+    private Label messageLabel;
+    @FXML
     private Label opc1;
     @FXML
     private Label opc2;
-
     @FXML
     private TextField titulo;
     @FXML
@@ -48,13 +51,23 @@ public class BuscarItemController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Item meuItem;
-                meuItem = displayBiblioteca.buscarItem(actionEvent,titulo.getText());
-                if(meuItem instanceof Revista) {
-                    setLabels(meuItem.getTitulo(),meuItem.getAutor(),meuItem.getAnoPublicacao(),String.valueOf(meuItem.getQuantidadeDisponivel()),"Volume",String.valueOf(((Revista) meuItem).getVolume()),"Numero",String.valueOf(((Revista) meuItem).getNumero()));
-                } else if(meuItem instanceof Livro) {
-                    setLabels(meuItem.getTitulo(),meuItem.getAutor(),meuItem.getAnoPublicacao(),String.valueOf(meuItem.getQuantidadeDisponivel()),"Editora",String.valueOf(((Livro) meuItem).getEditora()),"ISBN",String.valueOf(((Livro) meuItem).getISBN()));
-                } else if(meuItem instanceof CD) {
-                    setLabels(meuItem.getTitulo(),meuItem.getAutor(),meuItem.getAnoPublicacao(),String.valueOf(meuItem.getQuantidadeDisponivel()),"Volume",String.valueOf(((CD) meuItem).getVolume()),"Gravadora",String.valueOf(((CD) meuItem).getGravadora()));
+                if(!titulo.getText().equals("")) {
+                    try {
+                        meuItem = displayBiblioteca.buscarItem(actionEvent,titulo.getText());
+                        if(meuItem instanceof Revista) {
+                            setLabels(meuItem.getTitulo(),meuItem.getAutor(),meuItem.getAnoPublicacao(),String.valueOf(meuItem.getQuantidadeDisponivel()),"Volume",String.valueOf(((Revista) meuItem).getVolume()),"Numero",String.valueOf(((Revista) meuItem).getNumero()));
+                        } else if(meuItem instanceof Livro) {
+                            setLabels(meuItem.getTitulo(),meuItem.getAutor(),meuItem.getAnoPublicacao(),String.valueOf(meuItem.getQuantidadeDisponivel()),"Editora",String.valueOf(((Livro) meuItem).getEditora()),"ISBN",String.valueOf(((Livro) meuItem).getISBN()));
+                        } else if(meuItem instanceof CD) {
+                            setLabels(meuItem.getTitulo(),meuItem.getAutor(),meuItem.getAnoPublicacao(),String.valueOf(meuItem.getQuantidadeDisponivel()),"Volume",String.valueOf(((CD) meuItem).getVolume()),"Gravadora",String.valueOf(((CD) meuItem).getGravadora()));
+                        }
+                    } catch (UnavailableItemError ex) {
+                        messageLabel.setText(ex.getMessage());
+                        messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
+                    }
+                } else {
+                    messageLabel.setText("Digite um título!");
+                    messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
                 }
             }
         });

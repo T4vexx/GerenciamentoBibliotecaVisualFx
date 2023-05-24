@@ -2,6 +2,13 @@ package com.otavio.biblioteca.itens;
 
 import com.otavio.dtos.Emprestavel;
 
+/**
+ * Item
+ * Classe que representa um item da biblioteca.
+ * É uma classe abstrata, fornecendo funcionalidades básicas e comuns a todos os tipos de itens sendo herdadas por eles.
+ * Implementa um interface Emprestavel.
+ * @author Otavio Augusto Teixeira otavio.a.teixeira@unesp.br
+ */
 public abstract class Item implements Emprestavel {
     private String titulo;
     private String autor;
@@ -9,6 +16,14 @@ public abstract class Item implements Emprestavel {
     private int quantidadeDisponivel;
     private int quantidadeEmprestada;
 
+    /**
+     * Construtor dos atributos de um item
+     * 
+     * @param titulo Titulo de um item.
+     * @param autor Titulo de um item.
+     * @param anoPublicacao Ano publicacao de um item.
+     * @param quantidadeDisponivel Quantidade disponivel de um item.
+     */
     public Item(String titulo, String autor, String anoPublicacao, int quantidadeDisponivel) {
         this.titulo = titulo;
         this.autor = autor;
@@ -57,10 +72,19 @@ public abstract class Item implements Emprestavel {
         this.quantidadeEmprestada = quantidadeEmprestada;
     }
 
+    /**
+     * Método implementado da interface Emprestavel.
+     * Diminui a quantidade disponivel e aumenta a quantidade emprestados
+     */
     public void emprestar() {
         setQuantidadeDisponivel(getQuantidadeDisponivel() - 1);
         setQuantidadeEmprestada(getQuantidadeEmprestada() + 1);
     }
+
+    /**
+     * Método implementado da interface Emprestavel.
+     * Diminui a quantidade emprestados e aumenta a quantidade disponivel
+     */
     public void devolver() {
         setQuantidadeDisponivel(getQuantidadeDisponivel() + 1);
         setQuantidadeEmprestada(getQuantidadeEmprestada() - 1);

@@ -1,0 +1,235 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AdicionarItemController {
+  + AdicionarItemController(): 
+  + initialize(URL, ResourceBundle): void
+}
+class Alunos {
+  + Alunos(String, String, String, String, String): 
+  + calcularMulta(int): double
+}
+class AssessorTecnico {
+  + AssessorTecnico(String, String, String, String): 
+  + calcularMulta(int): double
+}
+class AttempLibraryError {
+  + AttempLibraryError(String): 
+}
+class BuscarItemController {
+  + BuscarItemController(): 
+  + setLabels(String, String, String, String, String, String, String, String): void
+  + initialize(URL, ResourceBundle): void
+}
+class CD {
+  + CD(String, String, String, int, int, String): 
+  - volume: int
+  - gravadora: String
+   volume: int
+   gravadora: String
+}
+class DBUtils {
+  + DBUtils(): 
+  + changeScene(ActionEvent, String, String, String): void
+  + changeScene2(ActionEvent, String, String, String, String, String): void
+   displayBiblioteca: DisplayBiblioteca
+}
+class DevolverItemController {
+  + DevolverItemController(): 
+  + initialize(URL, ResourceBundle): void
+  - createList(): void
+}
+class DisplayBiblioteca {
+  + DisplayBiblioteca(): 
+  - meuCliente: Usuario
+  - vitrine: Vitrine
+  + fazerEmprestimo(Item): void
+  + adicionarItem(ActionEvent, String, String, String, String, String, String, String): void
+  + devolverItem(String): double
+  + sair(ActionEvent): void
+  + buscarItem(ActionEvent, String): Item
+  + login(ActionEvent, String, String, String): boolean
+  + register(ActionEvent, String, String, String, String, String, String): void
+   meuCliente: Usuario
+   vitrine: Vitrine
+}
+class EmprestadoController {
+  + EmprestadoController(): 
+  + initialize(URL, ResourceBundle): void
+}
+interface Emprestavel << interface >> {
+  + emprestar(): void
+  + devolver(): void
+}
+class Emprestimo {
+  + Emprestimo(Item, LocalDateTime, LocalDateTime): 
+  - item: Item
+  - dataDeDevolucaoPrevista: LocalDateTime
+  - dataDeDevolucaoReal: LocalDateTime
+  - dataDeEmprestimo: LocalDateTime
+  + calculaMulta(): long
+   dataDeDevolucaoPrevista: LocalDateTime
+   item: Item
+   dataDeEmprestimo: LocalDateTime
+   dataDeDevolucaoReal: LocalDateTime
+}
+class HelloApplication {
+  + HelloApplication(): 
+  + main(String[]): void
+  + start(Stage): void
+}
+class InvalidInformationsError {
+  + InvalidInformationsError(String): 
+}
+class Item {
+  + Item(String, String, String, int): 
+  - titulo: String
+  - quantidadeEmprestada: int
+  - anoPublicacao: String
+  - autor: String
+  - quantidadeDisponivel: int
+  + emprestar(): void
+  + devolver(): void
+   autor: String
+   anoPublicacao: String
+   quantidadeEmprestada: int
+   titulo: String
+   quantidadeDisponivel: int
+}
+class Livro {
+  + Livro(String, String, String, int, String, String): 
+  + editora: String
+  + ISBN: String
+   ISBN: String
+   editora: String
+}
+class LoginController {
+  + LoginController(): 
+  + initialize(URL, ResourceBundle): void
+}
+class MeusEmprestimosController {
+  + MeusEmprestimosController(): 
+  + initialize(URL, ResourceBundle): void
+}
+class NotBorrowedItemError {
+  + NotBorrowedItemError(String): 
+}
+class Professor {
+  + Professor(String, String, String, String, String): 
+  + calcularMulta(int): double
+}
+class RegisterAlunoController {
+  + RegisterAlunoController(): 
+  + initialize(URL, ResourceBundle): void
+  + setFirstStepRegisterInfos(String, String, String): void
+}
+class RegisterAssessorController {
+  + RegisterAssessorController(): 
+  + initialize(URL, ResourceBundle): void
+  + setFirstStepRegisterInfos(String, String, String): void
+}
+class RegisterController {
+  + RegisterController(): 
+  - errorLabel: Label
+  + initialize(URL, ResourceBundle): void
+  - loadPage(String): FXMLLoader
+   errorLabel: String
+}
+class RegisterProfessorController {
+  + RegisterProfessorController(): 
+  + initialize(URL, ResourceBundle): void
+  + setFirstStepRegisterInfos(String, String, String): void
+}
+class Revista {
+  + Revista(String, String, String, int, int, int): 
+  - volume: int
+  - numero: int
+   volume: int
+   numero: int
+}
+class UnavailableItemError {
+  + UnavailableItemError(String): 
+}
+class UserController {
+  + UserController(): 
+  + setContaInfos(String, String, String): void
+  + initialize(URL, ResourceBundle): void
+  - loadPage(String): FXMLLoader
+}
+class Usuario {
+  + Usuario(String, String, String): 
+  - nome: String
+  - senha: String
+  - matricula: String
+  - itensEmprestados: ArrayList<Emprestimo>
+  + addItemEmprestado(Emprestimo): boolean
+  + validarSenha(String): boolean
+  + calcularMulta(int): double
+   matricula: String
+   nome: String
+   itensEmprestados: ArrayList<Emprestimo>
+   senha: String
+}
+class UsuariosDB {
+  + UsuariosDB(): 
+  + login(String, String, String): Usuario
+  + addNewProfessor(Professor, String): void
+  + addNewAlunos(Alunos, String): void
+  + addNewAssesorTecnico(AssessorTecnico, String): void
+}
+class Vitrine {
+  + Vitrine(): 
+  - livros: ArrayList<Livro>
+  - revistas: ArrayList<Revista>
+  + buscarItemPeloNome(String): Item
+   livros: ArrayList<Livro>
+   revistas: ArrayList<Revista>
+   CDs: ArrayList<CD>
+   newLivro: Livro
+   newCd: CD
+   newRevista: Revista
+}
+
+Alunos                       -[#000082,plain]-^  Usuario                     
+AssessorTecnico              -[#000082,plain]-^  Usuario                     
+CD                           -[#000082,plain]-^  Item                        
+DBUtils                     "1" *-[#595959,plain]-> "getDisplayBiblioteca\n1" DisplayBiblioteca           
+DBUtils                      -[#595959,dashed]->  DisplayBiblioteca           : "«create»"
+DevolverItemController      "1" *-[#595959,plain]-> "displayBiblioteca\n1" DisplayBiblioteca           
+DisplayBiblioteca            -[#595959,dashed]->  Alunos                      : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  AssessorTecnico             : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  AttempLibraryError          : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  CD                          : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  Emprestimo                  : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  InvalidInformationsError    : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  Livro                       : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  NotBorrowedItemError        : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  Professor                   : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  Revista                     : "«create»"
+DisplayBiblioteca            -[#595959,dashed]->  UnavailableItemError        : "«create»"
+DisplayBiblioteca           "1" *-[#595959,plain]-> "meuCliente\n1" Usuario                     
+DisplayBiblioteca            -[#595959,dashed]->  UsuariosDB                  : "«create»"
+DisplayBiblioteca           "1" *-[#595959,plain]-> "usuarios\n1" UsuariosDB                  
+DisplayBiblioteca            -[#595959,dashed]->  Vitrine                     : "«create»"
+DisplayBiblioteca           "1" *-[#595959,plain]-> "vitrine\n1" Vitrine                     
+Emprestimo                  "1" *-[#595959,plain]-> "item\n1" Item                        
+Item                         -[#008200,dashed]-^  Emprestavel                 
+Livro                        -[#000082,plain]-^  Item                        
+Professor                    -[#000082,plain]-^  Usuario                     
+Revista                      -[#000082,plain]-^  Item                        
+Usuario                     "1" *-[#595959,plain]-> "itensEmprestados\n*" Emprestimo                  
+UsuariosDB                   -[#595959,dashed]->  Alunos                      : "«create»"
+UsuariosDB                  "1" *-[#595959,plain]-> "alunos\n*" Alunos                      
+UsuariosDB                  "1" *-[#595959,plain]-> "assessoresTecnicos\n*" AssessorTecnico             
+UsuariosDB                   -[#595959,dashed]->  AssessorTecnico             : "«create»"
+UsuariosDB                   -[#595959,dashed]->  InvalidInformationsError    : "«create»"
+UsuariosDB                  "1" *-[#595959,plain]-> "professor\n*" Professor                   
+UsuariosDB                   -[#595959,dashed]->  Professor                   : "«create»"
+Vitrine                     "1" *-[#595959,plain]-> "cds\n*" CD                          
+Vitrine                      -[#595959,dashed]->  InvalidInformationsError    : "«create»"
+Vitrine                     "1" *-[#595959,plain]-> "livros\n*" Livro                       
+Vitrine                     "1" *-[#595959,plain]-> "revistas\n*" Revista                     
+@enduml

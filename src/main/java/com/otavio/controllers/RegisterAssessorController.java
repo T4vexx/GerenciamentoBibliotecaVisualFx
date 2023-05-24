@@ -2,6 +2,7 @@ package com.otavio.controllers;
 
 import com.otavio.biblioteca.DBUtils;
 import com.otavio.biblioteca.DisplayBiblioteca;
+import com.otavio.exceptions.InvalidInformationsError;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -26,27 +27,25 @@ public class RegisterAssessorController implements Initializable {
     private String nome;
     private String matricula;
     private String senha;
-    private String funcao;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         registrar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                boolean isCredentialsCorrect;
                 DisplayBiblioteca displayBiblioteca;
                 displayBiblioteca = DBUtils.getDisplayBiblioteca();
-
                 if(!secao.getText().equals("")) {
-                    isCredentialsCorrect = displayBiblioteca.register(event,nome,senha,matricula,secao.getText(),"","assessor");
-                    if(!isCredentialsCorrect) {
-                        DBUtils.changeScene(event,"register-view.fxml","Gerenciamento de biblioteca | Register page","Matrícula já existente | Tente novamente");
-                    } else {
+                    try {
+                        displayBiblioteca.register(event,nome,senha,matricula,secao.getText(),"","assessor");
                         erroNoFomulario.setTextFill(Paint.valueOf("#48BB78"));
                         erroNoFomulario.setText("Conta criada com sucesso");
+                    } catch (InvalidInformationsError ex) {
+                        DBUtils.changeScene(event,"register-view.fxml","Gerenciamento de biblioteca | Register page",ex.getMessage());
                     }
                 } else {
-                    erroNoFomulario.setText("Credenciais não podem ser vazias");
+                    erroNoFomulario.setText("Credenciais não podem ser vazias!");
+                    erroNoFomulario.setTextFill(Paint.valueOf("#E53E3E"));
                 }
             }
         });
@@ -57,6 +56,5 @@ public class RegisterAssessorController implements Initializable {
         this.nome = nome;
         this.matricula = matricula;
         this.senha = senha;
-        this.funcao = funcao;
     }
 }

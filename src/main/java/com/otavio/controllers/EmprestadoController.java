@@ -6,6 +6,8 @@ import com.otavio.biblioteca.itens.CD;
 import com.otavio.biblioteca.itens.Item;
 import com.otavio.biblioteca.itens.Livro;
 import com.otavio.biblioteca.itens.Revista;
+import com.otavio.exceptions.AttempLibraryError;
+import com.otavio.exceptions.UnavailableItemError;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -138,56 +140,49 @@ public class EmprestadoController implements Initializable {
         emprestar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                Item meuItem = null;
                 if(estado == 0) {
                     messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
                     messageLabel.setText("Você deve escolher uma opção abaixo");
                 } else {
                     switch (estado) {
-                        case 1 -> {
-                            Livro livro = displayBiblioteca.getVitrine().getLivros().get(Integer.parseInt(index.getText()));
-                            if (livro != null) {
-                                if (displayBiblioteca.fazerEmprestimo(livro)) {
-                                    messageLabel.setTextFill(Paint.valueOf("#38A169"));
-                                    messageLabel.setText("Item emprestado com sucesso | "+livro.getTitulo());
-                                } else {
-                                    messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
-                                    messageLabel.setText("Voce ja possui esse titulo / quantidade indisponivel");
-                                }
+                        case 1:
+                            if(displayBiblioteca.getVitrine().getLivros().size() > Integer.parseInt(index.getText())) {
+                                meuItem = displayBiblioteca.getVitrine().getLivros().get(Integer.parseInt(index.getText()));
                             } else {
                                 messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
-                                messageLabel.setText("Digite um número da lista");
+                                messageLabel.setText("Digite um número valido!");
                             }
-                        }
-                        case 2 -> {
-                            Revista revista = displayBiblioteca.getVitrine().getRevistas().get(Integer.parseInt(index.getText()));
-                            if (revista != null) {
-                                if (displayBiblioteca.fazerEmprestimo(revista)) {
-                                    messageLabel.setTextFill(Paint.valueOf("#38A169"));
-                                    messageLabel.setText("Item emprestado com sucesso | "+revista.getTitulo());
-                                } else {
-                                    messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
-                                    messageLabel.setText("Voce ja possui esse titulo / quantidade indisponivel");
-                                }
+                            break;
+                        case 2:
+                            if(displayBiblioteca.getVitrine().getRevistas().size() > Integer.parseInt(index.getText())) {
+                                meuItem = displayBiblioteca.getVitrine().getRevistas().get(Integer.parseInt(index.getText()));
                             } else {
                                 messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
-                                messageLabel.setText("Digite um número da lista");
+                                messageLabel.setText("Digite um número valido!");
                             }
-                        }
-                        case 3 -> {
-                            CD cds = displayBiblioteca.getVitrine().getCDs().get(Integer.parseInt(index.getText()));
-                            if (cds != null) {
-                                if (displayBiblioteca.fazerEmprestimo(cds)) {
-                                    messageLabel.setTextFill(Paint.valueOf("#38A169"));
-                                    messageLabel.setText("Item emprestado com sucesso | "+cds.getTitulo());
-                                } else {
-                                    messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
-                                    messageLabel.setText("Voce ja possui esse titulo / quantidade indisponivel");
-                                }
+                            break;
+                        case 3:
+                            if(displayBiblioteca.getVitrine().getCDs().size() > Integer.parseInt(index.getText())) {
+                                meuItem = displayBiblioteca.getVitrine().getCDs().get(Integer.parseInt(index.getText()));
                             } else {
                                 messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
-                                messageLabel.setText("Digite um número da lista");
+                                messageLabel.setText("Digite um número valido!");
                             }
+                            break;
+                    }
+                    if (meuItem != null) {
+                        try {
+                            displayBiblioteca.fazerEmprestimo(meuItem);
+                            messageLabel.setTextFill(Paint.valueOf("#38A169"));
+                            messageLabel.setText("Item emprestado com sucesso | " + meuItem.getTitulo());
+                        } catch (AttempLibraryError | UnavailableItemError ex ) {
+                            messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
+                            messageLabel.setText(ex.getMessage());
                         }
+                    } else {
+                        messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
+                        messageLabel.setText("Digite um número da lista");
                     }
                 }
             }

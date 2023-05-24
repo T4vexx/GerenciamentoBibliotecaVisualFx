@@ -3,6 +3,7 @@ package com.otavio.controllers;
 import com.otavio.biblioteca.DBUtils;
 import com.otavio.biblioteca.DisplayBiblioteca;
 import com.otavio.biblioteca.itens.Emprestimo;
+import com.otavio.exceptions.NotBorrowedItemError;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -36,7 +37,7 @@ public class DevolverItemController implements Initializable {
     @FXML
     private Label messageLabel;
     private ListView<String> listaEmprestimosView;
-    private DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
+    private final DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
 
 
     @Override
@@ -48,15 +49,24 @@ public class DevolverItemController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 Double value;
                 if(!nomeDoItem.getText().equals("")) {
-                    value = displayBiblioteca.devolverItem(nomeDoItem.getText());
-                    if(value.equals(0.0)) {
-                        messageLabel.setText("Item devolvido com sucesso | Você nao possui multas");
-                        messageLabel.setTextFill(Paint.valueOf("#38A169"));
-                        createList();
-                    } else {
-                        messageLabel.setText("Item devolvido com atraso | Você possui uma multa de R$ "+value);
-                        messageLabel.setTextFill(Paint.valueOf("#ECC94B"));
+                    try {
+                        value = displayBiblioteca.devolverItem(nomeDoItem.getText());
+                        if(value.equals(0.0)) {
+                            messageLabel.setText("Item devolvido com sucesso | Você nao possui multas");
+                            messageLabel.setTextFill(Paint.valueOf("#38A169"));
+                            createList();
+                        } else {
+                            messageLabel.setText("Item devolvido com atraso | Você possui uma multa de R$ "+value);
+                            messageLabel.setTextFill(Paint.valueOf("#ECC94B"));
+                            createList();
+                        }
+                    } catch (NotBorrowedItemError ex) {
+                        messageLabel.setText(ex.getMessage());
+                        messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
                     }
+                } else {
+                    messageLabel.setText("Digite algum item!");
+                    messageLabel.setTextFill(Paint.valueOf("#E53E3E"));
                 }
             }
         });
@@ -70,7 +80,7 @@ public class DevolverItemController implements Initializable {
         ObservableList<String> items = FXCollections.observableArrayList();
         if(emps.size() > 0) {
             for(Emprestimo e: emps) {
-                items.add("> "+count+" / "+ (e.getDataDeDevolucaoReal() != null ? "Devolvido" : "Não Devolvido" )+" / "+e.getItem().getTitulo()+" / Data de emprestimo: "+e.getDataDeEmprestimo().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"))+" / Data prevista de devolução: "+e.getDataDeDevolucaoPrevista().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")));
+                items.add("> "+count+" / "+ (e.getDataDeDevolucaoReal() != null ? "Devolvido" : "Não Devolvido" )+" / "+e.getItem().getTitulo()+" / Data de emprestimo: "+e.getDataDeEmprestimo().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"))+" / Data prevista de devolução: "+e.getDataDeDevolucaoPrevista().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")) + (e.getDataDeDevolucaoReal() != null ? " / Data de devolução real: "+e.getDataDeDevolucaoReal().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")) : ""));
                 count++;
             }
             listaEmprestimosView.setItems(items);
