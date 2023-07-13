@@ -16,6 +16,7 @@ Possuir o java 20 que contenha o JavaFX
 
 ## Visual
 <div align="center" style="display: flex">
-  <img heigh="500em" src="https://github.com/T4vexx/GerenciamentoBibliotecaVisualFx/assets/68335367/8524f90b-3faa-433c-a765-07fb869867d5" />
-  <img heigh="500em" src="https://github.com/T4vexx/GerenciamentoBibliotecaVisualFx/assets/68335367/49fb856c-7a34-4c07-9e3e-b6cfed4bdf24" />
+  <img height="500em" src="https://github.com/T4vexx/GerenciamentoBibliotecaVisualFx/assets/68335367/8524f90b-3faa-433c-a765-07fb869867d5" />
+  <img height="500em" src="https://github.com/T4vexx/GerenciamentoBibliotecaVisualFx/assets/68335367/49fb856c-7a34-4c07-9e3e-b6cfed4bdf24" />
+  <img height="500em" src="https://github.com/T4vexx/GerenciamentoBibliotecaVisualFx/assets/68335367/1e2f0757-4e8d-4744-b76d-2404337b3047" />
 </div>
