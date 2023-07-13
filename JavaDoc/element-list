@@ -1,8 +1,0 @@
-module:com.otavio.gerenciamentodebibliotecagui
-com.otavio
-com.otavio.biblioteca
-com.otavio.biblioteca.individuos
-com.otavio.biblioteca.itens
-com.otavio.controllers
-com.otavio.dtos
-com.otavio.exceptions
